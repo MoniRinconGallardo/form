@@ -1,5 +1,4 @@
 <?php
-include "../model/db_conn.php";
 $id = $_GET["id"];
 
 if (isset($_POST["submit"])) {
@@ -8,6 +7,11 @@ if (isset($_POST["submit"])) {
   $email = $_POST['email'];
   $gender = $_POST['gender'];
 
+  $servername = "localhost";
+  $username  = "monica";
+  $password = "mrgn1118";
+  $dbname = "usuario";
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
   $sql = "UPDATE `persona` SET `first_name`='$first_name',`last_name`='$last_name',`email`='$email',`gender`='$gender' WHERE id = $id";
 
   $result = mysqli_query($conn, $sql);
@@ -53,6 +57,11 @@ if (isset($_POST["submit"])) {
     </div>
 
     <?php
+    $servername = "localhost";
+    $username  = "monica";
+    $password = "mrgn1118";
+    $dbname = "usuario";
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
     $sql = "SELECT * FROM `persona` WHERE id = $id LIMIT 1";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
