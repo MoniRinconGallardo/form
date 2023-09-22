@@ -1,7 +1,3 @@
-<?php
-include "model/db_conn.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,6 +45,11 @@ include "model/db_conn.php";
       </thead>
       <tbody>
         <?php
+        $servername = "localhost";
+        $username  = "monica";
+        $password = "mrgn1118";
+        $dbname = "usuario";
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
         $sql = "SELECT * FROM `persona`";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
