@@ -1,5 +1,4 @@
 <?php
-include "../model/db_conn.php";
 
 if (isset($_POST["submit"])) {
    $first_name = $_POST['first_name'];
@@ -7,6 +6,12 @@ if (isset($_POST["submit"])) {
    $email = $_POST['email'];
    $gender = $_POST['gender'];
    
+   $servername = "localhost";
+   $username  = "monica";
+   $password = "mrgn1118";
+   $dbname = "usuario";
+   $conn = mysqli_connect($servername, $username, $password, $dbname);
+
    $sql = "INSERT INTO `persona`(`id`, `first_name`, `last_name`, `email`, `gender`) VALUES (NULL,'$first_name','$last_name','$email','$gender');";
 
    $result = mysqli_query($conn, $sql);
